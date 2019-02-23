@@ -1,3 +1,32 @@
+<?php
+/**
+ * Custom Optimizer for Wordpress
+ *
+ * @package   the_optimizer_plugin
+ * @author    Alessandro Trasmondi
+ * @license   GPL-2.0+
+ * @link      https://github.com/atrasmo/the_optimizer_plugin
+ * @copyright 2019 Alessandro Trasmondi
+ *
+ * @wordpress-plugin
+ * Plugin Name:       The Optimizer
+ * Plugin URI:        https://github.com/atrasmo/the_optimizer_plugin
+ * Description:       Ottimizzare il proprio sito secondo regole e canoni comuni.
+ * Version:           1.0.0
+ * Author:            Alessandro Trasmondi
+ * Author URI:        https://github.com/atrasmo/
+ * Text Domain:       the-optimizer-plugin
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Domain Path:       /languages
+ * GitHub Plugin URI: https://github.com/atrasmo/the_optimizer_plugin
+ * GitHub Branch:     master
+ */
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 // Register Custom Taxonomy
 function twr_custom_taxonomy() {
 
@@ -37,3 +66,16 @@ function twr_custom_taxonomy() {
 
 }
 add_action( 'init', 'twr_custom_taxonomy', 0 );
+
+
+function twr_generate_dest_terms() {
+    $destinatari = array('Docenti', 'Alunni', 'Genitori', 'Personale ATA');
+    for ($i=0; $i<4; $i++) {
+         if (!term_exists( $destinatari[$i], 'paswdestinatari')) {
+            wp_insert_term( $destinatari[$i], 'paswdestinatari');
+        }
+    }
+}
+add_action( 'admin_init', 'twr_generate_dest_terms');
+
+?>
