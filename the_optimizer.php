@@ -33,7 +33,7 @@ function twr_custom_taxonomy() {
 	$labels = array(
 		'name'                       => _x( 'componenti', 'Taxonomy General Name', 'text_domain' ),
 		'singular_name'              => _x( 'componente', 'Taxonomy Singular Name', 'text_domain' ),
-		'menu_name'                  => __( 'Taxonomy', 'text_domain' ),
+		'menu_name'                  => __( 'Componenti', 'text_domain' ),
 		'all_items'                  => __( 'All Items', 'text_domain' ),
 		'parent_item'                => __( 'Parent Item', 'text_domain' ),
 		'parent_item_colon'          => __( 'Parent Item:', 'text_domain' ),
@@ -54,7 +54,7 @@ function twr_custom_taxonomy() {
 	);
 	$args = array(
 		'labels'                     => $labels,
-		'hierarchical'               => false,
+		'hierarchical'               => true,
 		'public'                     => true,
 		'show_ui'                    => true,
 		'show_admin_column'          => true,
