@@ -29,7 +29,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 if ( is_admin() ) {
     // we are in admin mode
-    require_once( dirname( __FILE__ ) . '/admin/plugin-name-admin.php' );
+    require_once( dirname( __FILE__ ) . '/admin/the_optimizer-admin.php' );
 }
 
 
