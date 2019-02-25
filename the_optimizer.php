@@ -27,6 +27,12 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+if ( is_admin() ) {
+    // we are in admin mode
+    require_once( dirname( __FILE__ ) . '/admin/plugin-name-admin.php' );
+}
+
+
 // Register Custom Taxonomy
 function twr_custom_taxonomy() {
 
