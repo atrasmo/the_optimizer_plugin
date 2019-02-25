@@ -73,15 +73,4 @@ function twr_custom_taxonomy() {
 }
 add_action( 'init', 'twr_custom_taxonomy', 0 );
 
-
-function twr_generate_dest_terms() {
-    $destinatari = array('Docenti', 'Alunni', 'Genitori', 'Personale ATA');
-    for ($i=0; $i<4; $i++) {
-         if (!term_exists( $destinatari[$i], 'twr_tax')) {
-            wp_insert_term( $destinatari[$i], 'twr_tax');
-        }
-    }
-}
-add_action( 'admin_init', 'twr_generate_dest_terms');
-
 ?>
